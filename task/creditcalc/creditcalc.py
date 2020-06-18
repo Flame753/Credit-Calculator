@@ -80,9 +80,11 @@ elif choose == "a":
     payment = find_annuity_payment(principal, months, interest)
     print(f"Your annuity payment = {payment}!")
 elif choose == "p":
-    print("Enter count of months:")
+    print("Enter monthly payment:")
+    payment = int(input())
+    print("Enter count of periods:")
     months = int(input())
-    print()
-    payment = ceil(principal / months)
-    last_payment = principal - (months - 1) * payment
-    print(f"Your monthly payment = {payment} with last month payment = {last_payment}.")
+    print('Enter credit interest:')
+    interest = int(input())
+    principal = find_principal(payment, months, interest)
+    print(f"Your annuity payment = {principal}!")
