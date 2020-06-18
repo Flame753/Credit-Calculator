@@ -131,5 +131,5 @@ files:
         print(f"Your monthly payment = {payment} with last month payment = {last_payment}.")
   learner_created: true
 feedback_link: https://hyperskill.org/projects/90/stages/502/implement
-status: Failed
+status: Solved
 record: -1

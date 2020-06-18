@@ -33,7 +33,7 @@ def find_principal(a, n, i):
     i = i / (12 * 1)
     nominator = i * pow(1 + i, n)
     denominator = pow(1 + i, n) - 1
-    a = a / nominator / denominator
+    a = a / (nominator / denominator)
     return a
 
 
