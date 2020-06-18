@@ -43,11 +43,11 @@ choose = input()
 
 if choose == "n":
     print("Enter the credit principal:")
-    principal = int(input())
+    principal = float(input())
     print("Enter monthly payment:")
-    payment = int(input())
+    payment = float(input())
     print('Enter credit interest:')
-    interest = int(input())
+    interest = float(input())
     months = find_months(principal, payment, interest)
     years = months // 12
     months = months % 12
@@ -72,19 +72,19 @@ if choose == "n":
             print(f"It takes {years} years and {months} months to repay the credit")
 elif choose == "a":
     print("Enter the credit principal:")
-    principal = int(input())
+    principal = float(input())
     print("Enter count of periods:")
     months = int(input())
     print('Enter credit interest:')
-    interest = int(input())
+    interest = float(input())
     payment = find_annuity_payment(principal, months, interest)
     print(f"Your annuity payment = {payment}!")
 elif choose == "p":
     print("Enter monthly payment:")
-    payment = int(input())
+    payment = float(input())
     print("Enter count of periods:")
     months = int(input())
     print('Enter credit interest:')
-    interest = int(input())
+    interest = float(input())
     principal = find_principal(payment, months, interest)
     print(f"Your annuity payment = {principal}!")
