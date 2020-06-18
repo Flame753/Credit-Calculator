@@ -37,12 +37,15 @@ def find_principal(a, n, i):
     return a
 
 
-print("What do you want to calculate:")
-print('type "n" - for count fo months,')
-print('type "a" - for annuity monthly payment:')
-print('type "p" - for credit principal:')
-choose = input()
+def menu():
+    print("What do you want to calculate:")
+    print('type "n" - for count fo months,')
+    print('type "a" - for annuity monthly payment:')
+    print('type "p" - for credit principal:')
+    return input()
 
+
+choose = menu()
 if choose == "n":
     print("Enter the credit principal:")
     principal = float(input())
