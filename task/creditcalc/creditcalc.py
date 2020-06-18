@@ -21,14 +21,16 @@ def find_months(p, a, i):
 
 def find_annuity_payment(p, n, i):
     i = i / 100
+    i = i / (12 * 1)
     nominator = i * pow(1 + i, n)
     denominator = pow(1 + i, n) - 1
     a = p * nominator / denominator
-    return a
+    return ceil(a)
 
 
 def find_principal(a, n, i):
     i = i / 100
+    i = i / (12 * 1)
     nominator = i * pow(1 + i, n)
     denominator = pow(1 + i, n) - 1
     a = a / nominator / denominator
@@ -87,4 +89,4 @@ elif choose == "p":
     print('Enter credit interest:')
     interest = float(input())
     principal = find_principal(payment, months, interest)
-    print(f"Your annuity payment = {principal}!")
+    print(f"Your credit principal = {principal}!")
