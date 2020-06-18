@@ -71,7 +71,14 @@ if choose == "n":
         else:
             print(f"It takes {years} years and {months} months to repay the credit")
 elif choose == "a":
-    pass
+    print("Enter the credit principal:")
+    principal = int(input())
+    print("Enter count of periods:")
+    months = int(input())
+    print('Enter credit interest:')
+    interest = int(input())
+    payment = find_annuity_payment(principal, months, interest)
+    print(f"Your annuity payment = {payment}!")
 elif choose == "p":
     print("Enter count of months:")
     months = int(input())
