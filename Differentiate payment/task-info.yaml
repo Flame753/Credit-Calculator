@@ -335,6 +335,26 @@ files:
         principal = find_principal(payment, months, interest)
         print(f"Your credit principal = {principal}!")
   learner_created: true
+- name: creditcalc/cmdarg.py
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/90/stages/503/implement
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #1
+
+    No numbers in the answer
+
+    Please find below the output of your program during this failed test.
+    Note that the '>' character indicates the beginning of the input line.
+
+    ---
+
+    What do you want to calculate:
+    type "n" - for count fo months,
+    type "a" - for annuity monthly payment:
+    type "p" - for credit principal:
+    >
+  time: Fri, 26 Jun 2020 19:18:11 UTC
 record: -1

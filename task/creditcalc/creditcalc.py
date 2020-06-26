@@ -1,4 +1,18 @@
 from math import ceil, log
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-t", "--type", type=str, choices=["diff", "annuity"],
+                    help="")
+parser.add_argument("-pri", "--principal", type=float,
+                    help="")
+parser.add_argument("-pay", "--payment", type=float,
+                    help="")
+parser.add_argument("-per", "--periods", type=float,
+                    help="")
+parser.add_argument("-i", "--interest", type=float,
+                    help="")
+args = parser.parse_args()
 
 """
 D or d = mth differentiated payment
