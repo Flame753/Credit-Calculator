@@ -1,6 +1,8 @@
 from math import ceil, log
 
 """
+D or d = mth differentiated payment
+
 A or a = annuity payment
 
 P or p = Credit principal.
@@ -8,6 +10,8 @@ P or p = Credit principal.
 i = nominal (monthly) interest rate.
 
 n = Number of payments. Usually, it’s the count of months.
+
+m = current period
 """
 
 
@@ -35,6 +39,12 @@ def find_principal(a, n, i):
     denominator = pow(1 + i, n) - 1
     a = a / (nominator / denominator)
     return a
+
+
+def find_diff_payment(p, i, n, m):
+    i = i / 100 * 12
+    d = (p/n) + i * (p - (p * (m-1) / n))
+    return d
 
 
 def menu():

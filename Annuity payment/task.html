@@ -16,7 +16,7 @@
 
 <p><span class="math-tex">\(n\)</span> = Number of payments. Usually, it’s the count of months.</p>
 
-<p>You are interested in four values: the count of periods to repay the credit, monthly payment, credit principal and credit interest. Each of these values can be calculated if others are known:</p>
+<p>You are interested in four values: the count of periods to repay the credit, monthly payment, credit principal and credit interest. Each of these values can be calculated if others are known:</p>
 
 <p><strong>Credit principal:</strong></p>
 
@@ -31,12 +31,12 @@
 <p>At this stage, you should add new behavior to the calculator:</p>
 
 <ol>
-	<li>First, you should ask the user which parameter they want to calculate. The calculator should be able to calculate the count of periods, monthly payment and credit principal.</li>
+	<li>First, you should ask the user which parameter they want to calculate. The calculator should be able to calculate the count of periods, monthly payment and credit principal.</li>
 	<li>Then you need to ask them to input the remaining values.</li>
-	<li>Finally, compute and output the value that they wanted.</li>
+	<li>Finally, compute and output the value that they wanted.</li>
 </ol>
 
-<p><div class="alert alert-warning">Note that users input interest rate as a percentage, for example, 11.7, so you should divide this value by 100 to use in the formula above.</div></p>
+<p><div class="alert alert-warning">Note that users input interest rate as a percentage, for example, 11.7, so you should divide this value by 100 to use in the formula above.</div></p>
 
 <p>Please be accurate when converting "<strong>X months</strong>" to "<strong>Y years and Z months</strong>". Avoid writing "<span style="color: #ff4363;">0 years and 11 months</span>" (output "<span style="color: #66cc66;">11 months</span>" instead) and "<span style="color: #ff4363;">1 years and 0 months</span>" (output "<span style="color: #66cc66;">1 year</span>" instead).</p>
 
@@ -44,10 +44,10 @@
 
 <ul>
 	<li>
-	<p>The first is the credit principal. </p>
+	<p>The first is the credit principal. </p>
 	</li>
 	<li>
-	<p>The second is a monthly payment. </p>
+	<p>The second is a monthly payment. </p>
 	</li>
 	<li>
 	<p>The next is the count of the period.</p>
@@ -59,7 +59,7 @@
 
 <h2 style="text-align: center;">Examples</h2>
 
-<p>The greater-than symbol followed by space (<code class="java">&gt; </code>) represents the user input. Notice that it's not the part of the input.</p>
+<p>The greater-than symbol followed by space (<code class="java">&gt; </code>) represents the user input. Notice that it's not the part of the input.</p>
 
 <p><strong>Example 1:</strong></p>
 
@@ -76,11 +76,11 @@ Enter credit interest:
 &gt; 10
 You need 8 years and 2 months to repay this credit!</code></pre>
 
-<p>Let’s take a closer look at <strong>Example 1</strong>.</p>
+<p>Let’s take a closer look at <strong>Example 1</strong>.</p>
 
 <p>You know the credit principal, the credit interest and want to calculate the count of months. What shall you do?</p>
 
-<p>1) You need to know the nominal interest rate. It is calculated like this:</p>
+<p>1) You need to know the nominal interest rate. It is calculated like this:</p>
 
 <p><span class="math-tex">\(i = \dfrac{10\%}{12 * 100\%} = 0.008333...\)</span></p>
 
@@ -92,7 +92,7 @@ You need 8 years and 2 months to repay this credit!</code></pre>
 
 <p><span class="math-tex">\(n = 98\)</span></p>
 
-<p>4) Finally, you need to convert “98 months” to “8 years and 2 months”, so it is more readable and understandable for the user.</p>
+<p>4) Finally, you need to convert “98 months” to “8 years and 2 months”, so it is more readable and understandable for the user.</p>
 
 <p>Consider other examples:</p>
 
