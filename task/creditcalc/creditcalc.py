@@ -50,65 +50,70 @@ def find_principal(a, n, i):
 
 
 def find_diff_payment(p, i, n, m):
-    i = i / 100 * 12
+    i = i / (100 * 12)
     d = (p/n) + i * (p - (p * (m-1) / n))
-    return d
+    return int(ceil(d))
+
+
+def print_over_payment(p, sum_diff_pay):
+    print("Overpayment = {}".format(int(ceil(sum_diff_pay - p))))
 
 
 def menu():
     print("What do you want to calculate:")
-    print('type "n" - for count fo months,')
+    print('type "n" - for count of months,')
     print('type "a" - for annuity monthly payment:')
     print('type "p" - for credit principal:')
     print('type "d" - differentiated payment')
     return input()
 
 
-print("enter")
-if args.type == "diff":
-    print("diff")
-elif args.type == "annuity":
-    print("annuity")
-
-
-"""
-choose = menu()
-if choose == "n":
-    principal = float(input("Enter the credit principal: "))
-    payment = float(input("Enter monthly payment: "))
-    interest = float(input("Enter credit interest: "))
-    months = find_months(principal, payment, interest)
-    years = months // 12
-    months = months % 12
-    if years == 0:
-        if months == 1:
-            print(f"It takes 1 month to repay the credit")
+def print_how_long(month, year):
+    if year == 0:
+        if month == 1:
+            print("It takes 1 month to repay the credit!")
         else:
-            print(f"It takes {months} months to repay the credit")
-    elif months == 0:
-        if years == 1:
-            print(f"It takes 1 year to repay the credit")
+            print("It takes {} months to repay the credit!".format(month))
+    elif month == 0:
+        if year == 1:
+            print("It takes 1 year to repay the credit!")
         else:
-            print(f"It takes {years} years to repay the credit")
+            print("It takes {} years to repay the credit!".format(year))
     else:
-        if years == 1 and months == 1:
-            print(f"It takes 1 year and 1 month to repay the credit")
-        elif years > 1 and months == 1:
-            print(f"It takes {years} years and 1 month to repay the credit")
-        elif years == 1 and months > 1:
-            print(f"It takes 1 year and {months} months to repay the credit")
+        if year == 1 and month == 1:
+            print("It takes 1 year and 1 month to repay the credit!")
+        elif year > 1 and month == 1:
+            print("It takes {} years and 1 month to repay the credit!".format(year))
+        elif year == 1 and month > 1:
+            print("It takes 1 year and {} months to repay the credit!".format(month))
         else:
-            print(f"It takes {years} years and {months} months to repay the credit")
-elif choose == "a":
-    principal = float(input("Enter the credit principal: "))
-    months = int(input("Enter count of periods: "))
-    interest = float(input("Enter credit interest: "))
-    payment = find_annuity_payment(principal, months, interest)
-    print(f"Your annuity payment = {payment}!")
-elif choose == "p":
-    payment = float(input("Enter monthly payment: "))
-    months = int(input("Enter count of periods: "))
-    interest = float(input("Enter credit interest: "))
-    principal = find_principal(payment, months, interest)
-    print(f"Your credit principal = {principal}!")
-"""
+            print("It takes {} years and {} months to repay the credit!".format(year, month))
+
+
+total = 0
+if args.type == "diff":
+    for month in range(1, args.periods+1):
+        diff_payment = find_diff_payment(p=args.principal, i=args.interest, n=args.periods, m=month)
+        print("Month {0}: paid out {1}".format(month, diff_payment))
+        total += diff_payment
+    print_over_payment(args.principal, total)
+
+elif args.type == "annuity":
+    if args.principal and args.payment:
+        # Finding count of months (n)
+        many_months = find_months(args.principal, args.payment, args.interest)
+        years = int(many_months // 12)
+        months = int(many_months % 12)
+        print_how_long(months, years)
+        print_over_payment(args.principal, many_months * args.payment)
+
+    elif args.principal and args.periods:
+        # Find the annuity payment (a)
+        payment = int(find_annuity_payment(args.principal, args.periods, args.interest))
+        print("Your annuity payment = {}!".format(payment))
+        print_over_payment(args.principal, args.periods * payment)
+    elif args.payment and args.periods:
+        # Find the principal (p)
+        principal = int(find_principal(args.payment, args.periods, args.interest))
+        print("Your credit principal = {}!".format(principal))
+        print_over_payment(principal, args.periods * args.payment)
