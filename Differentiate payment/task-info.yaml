@@ -339,22 +339,9 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/90/stages/503/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    No numbers in the answer
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    What do you want to calculate:
-    type "n" - for count fo months,
-    type "a" - for annuity monthly payment:
-    type "p" - for credit principal:
-    >
-  time: Fri, 26 Jun 2020 19:18:11 UTC
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/90/stages/503/implement">JetBrains
+    Academy</a>
+  time: Sat, 27 Jun 2020 18:33:10 UTC
 record: -1

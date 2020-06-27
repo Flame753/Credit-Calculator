@@ -91,29 +91,33 @@ def print_how_long(month, year):
 
 
 total = 0
-if args.type == "diff":
-    for month in range(1, args.periods+1):
-        diff_payment = find_diff_payment(p=args.principal, i=args.interest, n=args.periods, m=month)
-        print("Month {0}: paid out {1}".format(month, diff_payment))
-        total += diff_payment
-    print_over_payment(args.principal, total)
+if args.interest:
+    if args.type == "diff" and not args.payment:
+        for month in range(1, args.periods+1):
+            diff_payment = find_diff_payment(p=args.principal, i=args.interest, n=args.periods, m=month)
+            print("Month {0}: paid out {1}".format(month, diff_payment))
+            total += diff_payment
+        print_over_payment(args.principal, total)
 
-elif args.type == "annuity":
-    if args.principal and args.payment:
-        # Finding count of months (n)
-        many_months = find_months(args.principal, args.payment, args.interest)
-        years = int(many_months // 12)
-        months = int(many_months % 12)
-        print_how_long(months, years)
-        print_over_payment(args.principal, many_months * args.payment)
+    elif args.type == "annuity":
+        if args.principal and args.payment:
+            # Finding count of months (n)
+            many_months = find_months(args.principal, args.payment, args.interest)
+            years = int(many_months // 12)
+            months = int(many_months % 12)
+            print_how_long(months, years)
+            print_over_payment(args.principal, many_months * args.payment)
 
-    elif args.principal and args.periods:
-        # Find the annuity payment (a)
-        payment = int(find_annuity_payment(args.principal, args.periods, args.interest))
-        print("Your annuity payment = {}!".format(payment))
-        print_over_payment(args.principal, args.periods * payment)
-    elif args.payment and args.periods:
-        # Find the principal (p)
-        principal = int(find_principal(args.payment, args.periods, args.interest))
-        print("Your credit principal = {}!".format(principal))
-        print_over_payment(principal, args.periods * args.payment)
+        elif args.principal and args.periods:
+            # Find the annuity payment (a)
+            payment = int(find_annuity_payment(args.principal, args.periods, args.interest))
+            print("Your annuity payment = {}!".format(payment))
+            print_over_payment(args.principal, args.periods * payment)
+        elif args.payment and args.periods:
+            # Find the principal (p)
+            principal = int(find_principal(args.payment, args.periods, args.interest))
+            print("Your credit principal = {}!".format(principal))
+            print_over_payment(principal, args.periods * args.payment)
+else:
+    print("Incorrect parameters")
+
