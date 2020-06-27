@@ -1,32 +1,26 @@
+# D or d = mth differentiated payment
+# A or a = annuity payment
+# P or p = Credit principal.
+# i = nominal (monthly) interest rate.
+# n = Number of payments. Usually, it's the count of months
+# m = current period
+
 from math import ceil, log
 import argparse
 
+#  Initialize the parser
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--type", type=str, choices=["diff", "annuity"],
-                    help="")
+                    help="what is being calculated")
 parser.add_argument("-pri", "--principal", type=float,
-                    help="")
+                    help="a sum of money lent")
 parser.add_argument("-pay", "--payment", type=float,
-                    help="")
-parser.add_argument("-per", "--periods", type=float,
-                    help="")
+                    help="money that is being returned")
+parser.add_argument("-per", "--periods", type=int,
+                    help="the monthly cycle of payments")
 parser.add_argument("-i", "--interest", type=float,
-                    help="")
+                    help="nominal (monthly) interest rate")
 args = parser.parse_args()
-
-"""
-D or d = mth differentiated payment
-
-A or a = annuity payment
-
-P or p = Credit principal.
-
-i = nominal (monthly) interest rate.
-
-n = Number of payments. Usually, it’s the count of months.
-
-m = current period
-"""
 
 
 def find_months(p, a, i):
@@ -66,9 +60,18 @@ def menu():
     print('type "n" - for count fo months,')
     print('type "a" - for annuity monthly payment:')
     print('type "p" - for credit principal:')
+    print('type "d" - differentiated payment')
     return input()
 
 
+print("enter")
+if args.type == "diff":
+    print("diff")
+elif args.type == "annuity":
+    print("annuity")
+
+
+"""
 choose = menu()
 if choose == "n":
     principal = float(input("Enter the credit principal: "))
@@ -108,3 +111,4 @@ elif choose == "p":
     interest = float(input("Enter credit interest: "))
     principal = find_principal(payment, months, interest)
     print(f"Your credit principal = {principal}!")
+"""
